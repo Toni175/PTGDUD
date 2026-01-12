@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Enter the money</label>
+    <br>
+    <input type="text" id="money">
+    <br>
+    <span id="total">Total</span>
+    <br>
+    <button id="btnCal">Calculate the tip!</button>
+</body>
+
+<script>
+
+    let btnCal = document.getElementById('btnCal');
+    btnCal.addEventListener('click',() => {
+        let money = document.getElementById('money').value;
+        let total = calculateTotalMoney(parseFloat(money));
+        let spanTotal = document.getElementById('total');
+        spanTotal.innerText = total.toFixed(2);
+
+    });
+
+
+    function calculateTotalMoney(money) {
+        let total = 0.0;
+        let tip20 = 0.2;
+        let tip15 = 0.15;
+        if(money >= 50 & money <= 300) {
+            total = money + money*tip15;
+        } else {
+            total = money + money*tip20;
+        }
+        return total;
+    }
+</script>
+</html>

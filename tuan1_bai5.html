@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">A's Score</label>
+    <br>
+    <input type="text" id="a1">
+    <input type="text" id = "a2">
+    <input type="text" id = "a3">
+    <br>
+    <span id="aScore">A's average Score</span>
+    <br>
+    <label >B's Score</label>
+    <br>
+    <input type="text" id="b1">
+    <input type="text" id = "b2">
+    <input type="text" id = "b3">
+    <br>
+    <span id="bScore">B's average Score</span>
+    <br>
+    <button id="btnCal">Calculate</button>
+</body>
+
+
+<script>
+    let btnCal = document.getElementById("btnCal");
+    btnCal.addEventListener("click",() => {
+
+        let a1 = document.getElementById('a1').value;
+        let a2 = document.getElementById('a2').value;
+        let a3 = document.getElementById('a3').value;
+
+        let b1 = document.getElementById('b1').value;
+        let b2 = document.getElementById('b2').value;
+        let b3 = document.getElementById('b3').value;
+
+        let aScore = document.getElementById("aScore");
+        let bScore = document.getElementById("bScore");
+
+        let aTB = tinhDiemTB(a1,a2,a3);
+        let bTB = tinhDiemTB(b1,b2,b3);
+
+        aScore.innerText = aTB.toFixed(2);
+        bScore.innerText = bTB.toFixed(2);
+
+        checkWinner(aTB, bTB);
+
+    });
+
+    function checkWinner(a,b) {
+        if(a/b >= 2.0) console.log("A is the winner!")
+        else if (b/a >= 2.0) console.log("B is the winner!")
+        else console.log("no one wins!")
+    }
+
+    function tinhDiemTB(a,b,c) {
+        return (parseFloat(a) + parseFloat(b) + parseFloat(c)) / 3.0;
+    }
+
+
+</script>
+</html>
