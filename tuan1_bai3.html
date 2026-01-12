@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">A's Score</label>
+    <br>
+    <input type="text" id="a1">
+    <input type="text" id = "a2">
+    <input type="text" id = "a3">
+    <br>
+    <span id="aScore">A's average Score</span>
+    <br>
+    <label >B's Score</label>
+    <br>
+    <input type="text" id="b1">
+    <input type="text" id = "b2">
+    <input type="text" id = "b3">
+    <br>
+    <span id="bScore">B's average Score</span>
+    <br>
+    <button id="btnCal">Calculate</button>
+
+</body>
+
+<script>
+    let btnCal = document.getElementById("btnCal");
+    btnCal.addEventListener("click",() => {
+
+        let a1 = document.getElementById('a1').value;
+        let a2 = document.getElementById('a2').value;
+        let a3 = document.getElementById('a3').value;
+
+        let b1 = document.getElementById('b1').value;
+        let b2 = document.getElementById('b2').value;
+        let b3 = document.getElementById('b3').value;
+
+        let aScore = document.getElementById("aScore");
+        let bScore = document.getElementById("bScore");
+
+        let totalA = 0, totalB = 0;
+        if(parseInt(a1) >= 100) totalA += parseInt(a1);
+        if(parseInt(a2) >= 100) totalA += parseInt(a2);
+        if(parseInt(a3) >= 100) totalA += parseInt(a3);
+
+        if(parseInt(b1) >= 100) totalB += parseInt(b1);
+        if(parseInt(b2) >= 100) totalB += parseInt(b2);
+        if(parseInt(b3) >= 100) totalB += parseInt(b3);
+
+        if(totalA > totalB) {
+            console.log("A is the winner!");
+        } else if(totalA < totalB) {
+            console.log("B is the winner!");
+        } else {
+            console.log("No one wins!");
+        }
+
+        aScore.innerText = totalA;
+        bScore.innerText = totalB;
+
+        
+        // aScore.innerText = tinhDiemTD(a1,a2,a3);
+        // bScore.innerText = tinhDiemTD(b1,b2,b3);
+
+        // aScore = tinhDiemTD(a1,a2,a3);
+        // bScore = tinhDiemTD(b1,b2,b3);
+
+
+        // if(aScore > bScore) {
+        //     console.log("A is the winner!");
+        // } else if(aScore < bScore) {
+        //     console.log("B is the winner!");
+        // } else {
+        //     console.log("The both team is draw!");
+        // }
+
+    });
+
+    function tinhDiemTD(a,b,c) {
+        return (parseFloat(a) + parseFloat(b) + parseFloat(c)) / 3.0;
+    }
+
+
+</script>
+
+</html>
