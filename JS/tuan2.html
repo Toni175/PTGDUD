@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <label id="lbl">NONE</label> -->
+     <input type="text" id="lat" placeholder="enter the lat">
+     <input type="text" id="lng" placeholder="enter the lng">
+     <button id="btn">Send</button>
+     <br>
+     <label for="" id="where">Where are you?</label>
+    <script>
+        const whereAmI = async (lat,lng)=>{
+            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+
+        if (!response.ok) {
+            throw new Error("Bạn đang gửi yêu cầu quá nhanh (Throttled)!");
+        }
+
+            if(response.ok) {
+                const rs = await response.json();
+                console.log(rs);
+                let where = document.querySelector("#where");
+                where.innerText = rs.display_name;
+            } else {
+                alert("Error!!!")
+            }
+        }
+
+        let btn = document.querySelector("#btn");
+        btn.addEventListener("click",() => {
+            const lat = document.querySelector("#lat");
+            const lng = document.querySelector("#lng");
+            whereAmI(lat.value, lng.value);
+        });
+        
+    </script>
+</body>
+</html>
