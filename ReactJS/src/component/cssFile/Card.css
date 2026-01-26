@@ -1,0 +1,14 @@
+.container{
+    width: 500;
+    height: 1000;
+    border-color: white;
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px;
+}
+
+.name_price{
+    display: flex;
+    justify-content: space-between;
+}
+

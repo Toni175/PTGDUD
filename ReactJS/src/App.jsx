@@ -1,21 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
-import Button from './component/jsxFile/button'
+import Card from "./component/jsxFile/Card.jsx"
+import pic from './assets/imagine/react.svg'
+import Counter from './component/jsxFile/Counter.jsx'
+import FormStudent from './component/jsxFile/FormStudent.jsx'
+import DigitalClock from './component/jsxFile/DigitalClock.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
      
-     <div>
-      <label htmlFor="">Hello ReactJS</label>
-     </div>
-     <Button color="primary" title='BTN Primary'/>
-     <Button color="danger" title='BTN Danger'/>
-     <Button color="success" title='BTN Success'/>
+  <FormStudent />
+
+  {/* <DigitalClock /> */}
 
     </>
   )
